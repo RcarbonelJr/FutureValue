@@ -1,6 +1,6 @@
 import java.text.NumberFormat;
 
-public class FutureValue {    
+public class FutureValue implements Comparable {
     private double monthlyInvestment;
     private double interestRate;
     private int years;
@@ -41,5 +41,10 @@ public class FutureValue {
     public String getFutureValueFormatted() {
         return NumberFormat.getCurrencyInstance()
                            .format(getFutureValue());
-    }    
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return Double.compare(this.getFutureValue(), ((FutureValue) o).getFutureValue());
+    }
 }

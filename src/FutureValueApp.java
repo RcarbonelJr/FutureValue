@@ -11,6 +11,7 @@
  *      - add code that sorts the calculations by the future value that’s stored in the FutureValue object
  */
 
+import java.util.Collections;
 import java.util.LinkedList;
 
 public class FutureValueApp {
@@ -55,6 +56,9 @@ public class FutureValueApp {
             choice = Console.getString("Continue? (y/n): ");
             System.out.println();
         }
+
+        // Sort the Linked List
+        Collections.sort(futureValuesList);
 
         // Display all future value calculations
         System.out.println("ALL CALCULATIONS");
