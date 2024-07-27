@@ -61,13 +61,16 @@ public class FutureValueApp {
         Collections.sort(futureValuesList);
 
         // Display all future value calculations
-        System.out.println("ALL CALCULATIONS");
+        System.out.println("ALL CALCULATIONS\n");
+        System.out.printf("%-12s %-8s %-8s %-15s%n", "Inv/Mo.", "Rate", "Years", "Future Value");
+
         for (FutureValue fv : futureValuesList) {
-            System.out.println(
-                      "Monthly investment:   " + fv.getMonthlyInvestmentFormatted() + "\n"
-                    + "Yearly interest rate: " + fv.getInterestRateFormatted() + "\n"
-                    + "Number of years:      " + fv.getYears() + "\n"
-                    + "Future value:         " + fv.getFutureValueFormatted() + "\n");
+            System.out.printf("%-12s %-8s %-8d %-15s%n",
+                    fv.getMonthlyInvestmentFormatted(),
+                    fv.getInterestRateFormatted(),
+                    fv.getYears(),
+                    fv.getFutureValueFormatted());
         }
+
     }
 }
