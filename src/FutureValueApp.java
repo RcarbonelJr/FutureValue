@@ -11,6 +11,8 @@
  *      - add code that sorts the calculations by the future value that’s stored in the FutureValue object
  */
 
+import java.util.LinkedList;
+
 public class FutureValueApp {
 
     public static void main(String[] args) {
@@ -18,6 +20,8 @@ public class FutureValueApp {
         // display a welcome message
         System.out.println("Welcome to the Future Value Calculator");
         System.out.println();
+
+        LinkedList<FutureValue> futureValuesList = new LinkedList<>();
 
         // perform 1 or more calculations
         String choice = "y";
@@ -44,9 +48,22 @@ public class FutureValueApp {
               + "Number of years:      " + fv.getYears() + "\n"
               + "Future value:         " + fv.getFutureValueFormatted() + "\n");
 
+            // Add the calculation to the linked list
+            futureValuesList.add(fv);
+
             // see if the user wants to continue
             choice = Console.getString("Continue? (y/n): ");
             System.out.println();
-        }        
+        }
+
+        // Display all future value calculations
+        System.out.println("ALL CALCULATIONS");
+        for (FutureValue fv : futureValuesList) {
+            System.out.println(
+                      "Monthly investment:   " + fv.getMonthlyInvestmentFormatted() + "\n"
+                    + "Yearly interest rate: " + fv.getInterestRateFormatted() + "\n"
+                    + "Number of years:      " + fv.getYears() + "\n"
+                    + "Future value:         " + fv.getFutureValueFormatted() + "\n");
+        }
     }
 }
